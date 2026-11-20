@@ -49,8 +49,8 @@
     // TODO 1: Select the form, the list, and the count span by id.
     // Hint: const form = document.getElementById('complaint-form');
     // ============================================================
-    const form = null; // TODO 1: document.getElementById('complaint-form')
-    const list = null; // TODO 1: document.getElementById('list')
+    const form = document.getElementById('complaint-form'); // TODO 1: document.getElementById('complaint-form')
+    const list = document.getElementById('list'); // TODO 1: document.getElementById('list')
     const countSpan = document.getElementById('count');
     let count = 0;
 
@@ -62,7 +62,19 @@
     //     ... TODO 3 goes inside here ...
     //   });
     // ============================================================
-    // YOUR CODE HERE
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('name').value.trim();
+      const complaintInput = document.getElementById('complaint').value.trim();
+
+      const li = document.createElement('li');
+      li.textContent = `${nameInput}: ${complaintInput}`;
+
+      list.prepend(li);
+      form.reset();
+      bumpCount();
+    });
 
     // ============================================================
     // TODO 3 (inside the handler above):
