@@ -68,6 +68,11 @@
       const nameInput = document.getElementById('name').value.trim();
       const complaintInput = document.getElementById('complaint').value.trim();
 
+      if (nameInput === '' || complaintInput === '') {
+        alert('Please fill in both fields.');
+        return;
+      }
+
       const li = document.createElement('li');
       li.textContent = `${nameInput}: ${complaintInput}`;
 
